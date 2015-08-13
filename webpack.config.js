@@ -4,15 +4,13 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    'bootstrap-webpack!./bootstrap.config.js',
-    'bootstrap-webpack!./bootstrap.config.less',
     'webpack/hot/only-dev-server',
     './src/client/entry',
   ],
   output: {
-    path: __dirname + '/public/js/',
+    path: __dirname + '/public/',
     filename: 'app.js',
-    publicPath: 'http://localhost:8080/js/',
+    publicPath: 'http://localhost:8080/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -24,10 +22,9 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, loaders: ['react-hot', 'babel-loader?experimental'], exclude: /node_modules/ },
-      { test: /\.woff$/,   loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.ttf$/,    loader: "file-loader" },
-      { test: /\.eot$/,    loader: "file-loader" },
-      { test: /\.svg$/,    loader: "file-loader" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$/, loader: "file-loader" }
     ]
   }
 }
