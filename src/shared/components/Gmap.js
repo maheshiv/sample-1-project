@@ -1,10 +1,15 @@
-import React from "react";
-import './map.less';
+import React from 'react';
+import 'bootstrap/less/bootstrap.less';
+import Button from 'react-bootstrap/lib/Button';
+
 export default class Gmap extends React.Component {  
   render() {
     return (
-      <div className = "google-map" ref = "map_canvas">
+      <div>
+        <Button bsStyle='primary'> Cool</Button>
+        <div className = 'google-map' ref = 'map_canvas'>
 
+        </div>
       </div>
     );
   }
